@@ -3,7 +3,7 @@
               [hiccup.element :refer (link-to unordered-list mail-to)]))
 
 (defn snippet [config]
-  [:section.footer.dark {:ng-controller "FooterCtrl"}
+  [:section.footer.dark.container-fluid {:ng-controller "FooterCtrl"}
    [:div.row
     [:div.col-sm-8.site-map
      [:ul
