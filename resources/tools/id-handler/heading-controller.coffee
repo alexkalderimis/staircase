@@ -33,7 +33,7 @@ define ['imjs'], ({Service}) -> Array '$scope', '$timeout', 'makeList', (scope, 
       service: scope.data.service
     makeList.fromIds(listReq).then (list) ->
       step =
-        title: "Created list #{ list.name }"
+        title: "Created: #{ list.name }"
         tool: 'show-list'
         data:
           listName: list.name

@@ -23,11 +23,11 @@ define(['angular', 'imjs', 'lodash'], function (ng, im, L) {
     var fetchingDefaultMine = mines.get(mineName);
 
     fetchingDefaultMine.then(setMineDetails);
-    
+
     fetchingDefaultMine.then(connect)
                        .then(readLists)
                        .then(null, function (e) { scope.tool.error = e; });
-    
+
     scope.viewList = viewList;
 
     scope.deleteList = deleteList;
