@@ -26,28 +26,33 @@ define (require) ->
   Filters.filter 'roughDate', Array '$filter', (filters) -> (str) ->
     date = new Date str
     now = new Date()
+    rDate;
 
     minutesAgo = (now.getTime() - date.getTime()) / 60 / 1000
-
-    if minutesAgo < 1
-      return "a moment ago"
-
-    if minutesAgo < 2
-      return "one minute ago"
-    
-    if minutesAgo < 60
-      return "today, #{ minutesAgo.toFixed() } minutes ago"
-
     hoursAgo = minutesAgo / 60
-
-    if hoursAgo < now.getHours()
-      return "today, #{ hoursAgo.toFixed() } hours ago"
-
     daysAgo = hoursAgo / 24
 
-    if hoursAgo > (1 + (now.getHours() / 24))
-      return filters('date')(str)
+    if hoursAgo < 48 && (now.getDate()-1 == date.getDate())
+      rDate = "yesterday"
+
+    if hoursAgo < now.getHours()
+      if hoursAgo.toFixed() == "1"
+        rDate = "today, one hour ago"
+      else
+        rDate = "today, #{ hoursAgo.toFixed() } hours ago"
+
+    if minutesAgo < 60
+      rDate =  "today, #{ minutesAgo.toFixed() } minutes ago"
+
+    if minutesAgo < 2
+      rDate = "one minute ago"
+
+    if minutesAgo < 1
+      rDate = "a moment ago"
+
+    if rDate
+      rDate = filters('date')(str) + " (" +rDate + ")"
     else
-      return "yesterday"
+      rDate = filters('date')(str)
 
   return Filters
