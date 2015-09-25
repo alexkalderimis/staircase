@@ -37,12 +37,12 @@ define (require) ->
 
     if hoursAgo < now.getHours()
       if hoursAgo.toFixed() == "1"
-        rDate = "today, one hour ago"
+        rDate = "one hour ago"
       else
-        rDate = "today, #{ hoursAgo.toFixed() } hours ago"
+        rDate = "#{ hoursAgo.toFixed() } hours ago"
 
     if minutesAgo < 60
-      rDate =  "today, #{ minutesAgo.toFixed() } minutes ago"
+      rDate =  "#{ minutesAgo.toFixed() } minutes ago"
 
     if minutesAgo < 2
       rDate = "one minute ago"
