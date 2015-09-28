@@ -23,6 +23,10 @@ define (require) ->
     return obj unless obj instanceof Object
     (Object.defineProperty v, '$key', {__proto__: null, value: k} for k, v of obj)
 
+    ###*
+     * Adds rough temporal relativity to date, e.g. "3 hours ago". Doesn't add anything to dates older than yesterday.
+     * @return {String}         imDate string, with temporal relative description if applicable
+    ###
   Filters.filter 'roughDate', Array '$filter', (filters) -> (str) ->
     date = new Date str
     now = new Date()
@@ -55,9 +59,16 @@ define (require) ->
     else
       rDate = filters('imDate')(str)
 
+  ###*
+   * the imDate filter outputs dates in the format YYYY-MM-DD HH:mm.
+   * This should be the default date standard used throughout Steps.
+   * (Unfortunately there's no way in angular to set the default
+   * format for the vanilla 'date' filter).
+   * @param  {dateString} str the date to format, suitable for initialising via new Date()
+   * @return {String}         returns date matching format YYYY-MM-DD HH:mm.
+  ###
+
   Filters.filter 'imDate', Array '$filter', (filters) -> (str) ->
-    #todo: make this match the format  2014-01-08 13:14
-    #use this: https://docs.angularjs.org/api/ng/filter/date
     imDateFilter = filters('date')
     theDate = new Date str
     imDateFilter theDate, 'yyyy-MM-dd HH:mm'
