@@ -51,8 +51,15 @@ define (require) ->
       rDate = "a moment ago"
 
     if rDate
-      rDate = filters('date')(str) + " (" +rDate + ")"
+      rDate = filters('imDate')(str) + " (" +rDate + ")"
     else
-      rDate = filters('date')(str)
+      rDate = filters('imDate')(str)
+
+  Filters.filter 'imDate', Array '$filter', (filters) -> (str) ->
+    #todo: make this match the format  2014-01-08 13:14
+    #use this: https://docs.angularjs.org/api/ng/filter/date
+    imDateFilter = filters('date')
+    theDate = new Date str
+    imDateFilter theDate, 'yyyy-MM-dd HH:mm'
 
   return Filters
