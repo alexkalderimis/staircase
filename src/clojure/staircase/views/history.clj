@@ -1,6 +1,5 @@
 (ns staircase.views.history
   (:require staircase.views.forms
-            staircase.views.facets
             [hiccup.def :refer (defelem)]
             [staircase.views.buttons :as btn])
   (:use [hiccup.core :only (html)]

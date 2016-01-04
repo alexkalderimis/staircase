@@ -1,0 +1,7 @@
+{
+    "capabilities": ["now"],
+    "type": "IFrame",
+    "seamless": false,
+    "src": "http://mynock:3456/tool.html",
+    "heading": "Keyword search"
+}

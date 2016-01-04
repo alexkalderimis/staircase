@@ -130,10 +130,10 @@
         :tools [:list-templates]}
         {:label "Protein Domains"
         :icon "fa icon-protein-domains"
-        :tools [:list-templates :tool2 :tool3]}
+        :tools [:list-templates]}
         {:label "Literature"
         :icon "fa fa-book"
-        :tools [:list-templates :tool2 :tool3]}
+        :tools [:list-templates]}
         {:label "Expression"
         :icon "fa icon-traffic-signal"
         :tools [:list-templates]}
@@ -142,20 +142,20 @@
         :tools [:convert-list :list-templates]}
         {:label "Interactions"
         :icon "fa icon-interaction"
-        :tools [:list-templates :tool2 :tool3]}
+        :tools [:list-templates :cytoscape-network]}
         {:label "Regulation"
         :icon "fa fa-3x icon-dna-cog"
         :tools [:list-templates]}
         {:label "Diseases"
         :icon "fa fa-medkit"
-        :tools [:list-templates :tool2 :tool3]}
+        :tools [:list-templates]}
         {:label "Genes"
         :icon "fa fa-3x icon-dna"
         :tools [:show-report :list-templates :region-search]}
         {:label "Proteins"
         :icon "fa icon-protein"
         :tools [:list-templates :protein-viewer :show-report]}
-        {:label "Utilies"
+        {:label "Utilites"
         :icon "fa fa-wrench"
         :tools [:combine-lists :export]}]
 
@@ -177,6 +177,7 @@
                    :combine-lists
                    :convert-list
                    :protein-viewer
+                   :cytoscape-network
                    :convert-list
                    :list-templates
                    [:export {:category ["Export"]}]

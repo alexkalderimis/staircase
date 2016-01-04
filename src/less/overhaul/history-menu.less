@@ -16,6 +16,15 @@
 @sz-blind-closed: 100px;
 @sz-blind-open: 300px;
 
+.fadeHistory{
+  @solidColor:rgba(250,250,250,0.86);
+  @midColor:fadeOut(@solidColor, 0.3);
+  @translucent:rgba(255,255,255,0);
+  background: -moz-linear-gradient(top, @translucent 0%, @midColor 80%, @solidColor 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  @translucent 0%, @midColor 80%,@solidColor 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  @translucent 0%, @midColor 80% ,@solidColor 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 .heading-text {
   text-transform: uppercase;
   font-size: 0.8em;
@@ -35,7 +44,19 @@
 
   &.left {
     left: 0;
+    &:after {
+      width: @sz-blind-closed;
+      content:"";
+      height:40%;
+      position:fixed;
+      bottom:0;
+      .fadeHistory;
+    }
     &.open {
+      &:after {
+        opacity:0;
+        transition: 0.3s;
+      }
       width: @sz-blind-open;
       border-right: 1px solid #e7e7e7;
       box-shadow: 2px 0px 2px 0 rgba(0,0,0,0.15);

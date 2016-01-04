@@ -16,7 +16,6 @@ define (require) ->
     'ngCookies', 'steps.services', 'ngAnimate'
     'steps.projects',
     'steps.starting-point',
-    'steps.facets.controllers',
     'steps.auth.controllers',
     'steps.quick-search.controllers',
     'steps.history.controllers'
