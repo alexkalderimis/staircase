@@ -5,7 +5,7 @@ define (require, module, exports) ->
   DialogueTempl = require 'text!./dialogue.html'
 
   Array '$scope', '$modal', '$q', 'connectTo', (scope, Modals, Q, connectTo) ->
-    
+
     scope.type = scope.data.type
     scope.listName = scope.data.name
     scope.services = []
@@ -29,11 +29,10 @@ define (require, module, exports) ->
 
       modalInstance.result.then (list) ->
         step =
-          title: "Created #{ list.name }"
+          title: "Created: #{ list.name }"
           tool: 'show-list'
           data:
             service: L.pick(scope.service, 'root')
             listName: list.name
 
         scope.appendStep data: step
-
