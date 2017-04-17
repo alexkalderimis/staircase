@@ -17,7 +17,7 @@ define [], -> Array '$scope', (scope) ->
     scope.previousStep.$promise.then ->
 
       step =
-        title: "Exported results"
+        title: "Export results"
         tool: scope.tool.ident
         data:
           query: scope.query

@@ -14,7 +14,7 @@ define ['imjs'], ({Service}) -> Array '$scope', '$timeout', 'makeList', (scope, 
 
   scope.showTable = ->
     step =
-      title: "Ran #{ scope.typeName } query"
+      title: "Query: #{ scope.typeName }"
       tool: "show-table"
       data:
         service:
@@ -40,4 +40,3 @@ define ['imjs'], ({Service}) -> Array '$scope', '$timeout', 'makeList', (scope, 
           service: listReq.service
 
       scope.appendStep data: step
-
