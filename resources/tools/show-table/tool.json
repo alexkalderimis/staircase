@@ -1,7 +1,7 @@
 {
-  "capabilities": ["provider", "now"],
+  "capabilities": ["provider", "now", "next"],
   "provides": "table",
-  "handles": "query",
+  "handles": ["items", "query"],
   "type": "IFrame",
   "seamless": false,
   "heading": "Results Table",
