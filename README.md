@@ -1,3 +1,12 @@
+
+This project has been archived and replaced by [BlueGenes](https://github.com/intermine/bluegenes)
+
+
+
+
+
+====================================================
+
 # staircase
 
 [![Build Status][travis-badge]][ci]
